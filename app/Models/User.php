@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use PhpParser\Node\Stmt\Return_;
 
 class User extends Authenticatable
 {
@@ -44,5 +45,14 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
+    }
+    public function memberOf(string $id)
+    {
+        // dd($this->id);
+        return GroupMember::where('group_id', $id)->where('user_id', $this->id)->first();
     }
 }

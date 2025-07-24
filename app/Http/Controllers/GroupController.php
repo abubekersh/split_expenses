@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Expense;
 use App\Models\Group;
 use App\Models\GroupMember;
 use Illuminate\Http\Request;
@@ -40,7 +41,9 @@ class GroupController extends Controller
             return abort(404);
         }
         $members = $group->members;
-        return view('groups.show', ['group' => $group, 'members' => $members]);
+
+        $expenses = Expense::where('group_id', $id)->get();
+        return view('groups.show', ['group' => $group, 'members' => $members, 'expenses' => $expenses]);
     }
     private function isMember(string $group, string $user)
     {
