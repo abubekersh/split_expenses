@@ -8,6 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg h-80 p-10">
+                <a href="{{route('dashboard')}}" class="px-3 py-2 rounded bg-gray-400 font-bold text-white text-sm mb-2 inline-block">Back </a>
                 <h2 class="text-center">Create Group</h2>
                 <form action="/groups/store" class="w-1/4 m-auto" method="post">
                     @csrf

@@ -12,8 +12,24 @@
 }
 
 table {
-    width: 100%;
+    margin: auto;
+    width: 90%;
+    text-align: left;
+    text-transform: capitalize;
+    margin-bottom: 5rem;
 }
-th {
-    padding: 2rem;
+th,
+td {
+    padding: 1.5rem 2rem;
+}
+tr {
+    border-bottom: 2px solid gray;
+}
+thead {
+    background-color: rgba(66, 66, 231, 0.774);
+    color: white;
+}
+tr:nth-of-type(even) {
+    background-color: rgba(144, 144, 206, 0.671);
+    color: white;
 }
